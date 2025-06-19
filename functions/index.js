@@ -443,7 +443,10 @@ ${
           <span>Kanallar</span>
         </div>
       </div>
-
+<!-- Arama Kutusu -->
+<div id="search-wrapper" style="margin: 10px 0;">
+  <input type="text" id="matchSearchInput" placeholder="Maç veya kanal ara..." style="width: 100%; padding: 7px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
+</div>
       <!-- Maçlar Sekmesi İçeriği -->
       <div id="live-content" class="active" data-tabbed="live" style="width: 100%; display: block;">
         <div class="live-list-grid" style="width: 100%;">
@@ -463,8 +466,26 @@ ${
   background: #fff; /* varsa */
 }
 </style>
+
              <!-- İçerik Alanı: Menü + Maçlar Yan Yana -->
 <div style="display: flex; align-items: flex-start; gap: 10px;">
+
+
+<script>
+// DOM tamamen yüklendiğinde başlat
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('matchSearchInput');
+  searchInput.addEventListener('keyup', function () {
+    const filter = this.value.toLowerCase();
+    const matches = document.querySelectorAll('.single-match');
+
+    matches.forEach(function (match) {
+      const text = match.textContent.toLowerCase();
+      match.style.display = text.includes(filter) ? 'flex' : 'none';
+    });
+  });
+});
+</script>
 
   <!-- Dikey Menü -->
  <div class="vertical-menu">
@@ -520,6 +541,23 @@ ${
     </svg></div>
   </div>
   <!-- Maçlar İçeriği -->
+
+<script>
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    let filter = this.value.toLowerCase();
+    let matches = document.querySelectorAll('.single-match');
+
+    matches.forEach(function(match) {
+        let text = match.textContent.toLowerCase();
+        if (text.includes(filter)) {
+            match.style.display = 'flex';
+        } else {
+            match.style.display = 'none';
+        }
+    });
+});
+</script>
+
   <div id="matches-content" style="flex-grow: 1;"></div>
 </div>
 
@@ -739,3 +777,4 @@ ${
     headers: { "Content-Type": "text/html; charset=UTF-8" }
   });
 }
+

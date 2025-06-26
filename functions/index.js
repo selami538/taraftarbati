@@ -600,16 +600,20 @@ document.getElementById('searchInput').addEventListener('keyup', function() {
 
 <!-- JS -->
 <script>
-    fetch('https://matchkey.sbs/load/matches.jpeg')
+  fetch('https://matchkey.sbs/load/matches.jpeg')
     .then(response => response.text())
     .then(data => {
       document.getElementById('matches-content').innerHTML = data;
 
-      function filterMatches(category) {
+      // Çoklu filtre destekleyen versiyon
+      function filterMatches(categoryStr) {
+        const filters = categoryStr.split(',').map(f => f.trim().toLowerCase());
         const matches = document.querySelectorAll("#matches-content .single-match");
+
         matches.forEach(match => {
-          const type = match.getAttribute("data-matchtype");
-          match.style.display = (type === category) ? "flex" : "none";
+          const type = match.getAttribute("data-matchtype").toLowerCase();
+          const isMatch = filters.includes(type);
+          match.style.display = isMatch ? "flex" : "none";
         });
       }
 
@@ -618,15 +622,18 @@ document.getElementById('searchInput').addEventListener('keyup', function() {
         item.addEventListener('click', function () {
           menuItems.forEach(i => i.classList.remove('active'));
           this.classList.add('active');
+
           const category = this.getAttribute('data-matchfilter');
-          filterMatches(category);
+          filterMatches(category);  // Artık virgüllü değer destekliyor
         });
       });
 
-      filterMatches("Futbol");
+      // Başlangıçta birden fazla filtre uygula
+      filterMatches("Futbol,Futbol TR,Futbol TRY");
     })
     .catch(error => console.error('Veri yüklenirken hata:', error));
 </script>
+
 
 
 

@@ -653,7 +653,7 @@ document.getElementById('searchInput').addEventListener('keyup', function() {
                   <div class="match-tab-box" style="display: block; width: 100%;">
                     <div id="channels-content" style="width: 100%;">
                       <script>
-                        fetch('https://matchkey.sbs/load/channels.php')
+                        fetch('https://matchkey.sbs/load/channels.jpeg')
                           .then(response => response.text())
                           .then(data => {
                             document.getElementById('channels-content').innerHTML = data;

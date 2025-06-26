@@ -600,7 +600,7 @@ document.getElementById('searchInput').addEventListener('keyup', function() {
 
 <!-- JS -->
 <script>
-    fetch('https://matchkey.sbs/load/matches.jpeg')
+    fetch('https://apimatches.johntaylors029.workers.dev/load/matches.jpeg')
     .then(response => response.text())
     .then(data => {
       document.getElementById('matches-content').innerHTML = data;

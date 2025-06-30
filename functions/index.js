@@ -446,9 +446,36 @@ ${
         </div>
       </div>
 <!-- Arama Kutusu -->
-<div id="search-wrapper" style="margin: 10px 0;">
-  <input type="text" id="matchSearchInput" placeholder="Maç veya kanal ara..." style="width: 100%; padding: 7px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
+<style>
+  .search-container {
+    position: relative;
+    margin: 10px 0;
+  }
+
+  .search-container input {
+    width: 100%;
+    padding: 7px 35px 7px 10px; /* sağa yer bırakıyoruz ikon için */
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .search-container .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* input'a tıklamaya engel olmasın */
+    color: #888;
+    font-size: 18px;
+  }
+</style>
+
+<div class="search-container">
+  <input type="text" id="matchSearchInput" placeholder="Maç veya kanal ara...">
+  <span class="search-icon">🔍</span>
 </div>
+
       <!-- Maçlar Sekmesi İçeriği -->
       <div id="live-content" class="active" data-tabbed="live" style="width: 100%; display: block;">
         <div class="live-list-grid" style="width: 100%;">

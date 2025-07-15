@@ -390,7 +390,11 @@ ${
 
 </header>
 
-
+<style>
+    .single-match:nth-child(odd) {
+    background: linear-gradient(135deg,transparent,rgba(255,255,255,0.1));
+}
+</style>
 
 <!-- REKLAM -->
 ${reklam1 

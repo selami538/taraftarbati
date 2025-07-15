@@ -627,7 +627,7 @@ document.getElementById('searchInput').addEventListener('keyup', function() {
 
 <!-- JS -->
 <script>
-  fetch('https://matchkey.sbs/load/matches1.php')
+  fetch('https://matchkey.sbs/load/matches.php')
     .then(response => response.text())
     .then(data => {
       document.getElementById('matches-content').innerHTML = data;

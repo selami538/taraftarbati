@@ -400,8 +400,8 @@ ${
 ${reklam1 
   ? `<div style="margin: 10px; text-align: center;">
       ${hrefreklam1 
-        ? `<a href="${hrefreklam1}" target="_blank"><img class="ads-img" src="${reklam1}" width="100%"/></a>` 
-        : `<img class="ads-img" src="${reklam1}" width="100%" height="30px"/>`}
+        ? `<a href="${hrefreklam1}" target="_blank"><img class="ads-img" src="${reklam1}" width="100%" height="30px"/></a>` 
+        : `<img class="ads-img" src="${reklam1}" width="100%"/>`}
     </div>` 
   : ''
 }

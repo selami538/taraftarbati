@@ -447,39 +447,28 @@ ${
       </div>
 <!-- Arama Kutusu -->
 <style>
-.search-container {
-  background-color: rgba(255, 255, 255, 0.2); /* Hafif opak beyaz */
-  padding: 10px;
-  border-radius: 50px; /* Tam yuvarlak köşeler */
-  display: flex;
-  align-items: center;
-  width: 100%; /* Tam genişlik */
-  max-width: 300px; /* Max genişlik, böylece fazla büyümez */
-  margin-right: 0; /* Sağdaki boşluğu kaldırdık */
-}
+  .search-container {
+    position: relative;
+    margin: 10px 0;
+  }
 
-#matchSearchInput {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: 8px 12px;
-  color: white;
-  font-size: 14px;
-  width: 100%; /* Tam genişlik */
-  border-radius: 50px; /* Input alanına da yuvarlaklık */
-}
+  .search-container input {
+    width: 100%;
+    padding: 7px 35px 7px 10px; /* sağa yer bırakıyoruz ikon için */
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
 
-.search-icon {
-  margin-left: 10px;
-  color: white;
-  font-size: 16px;
-  opacity: 0.6;
-}
-
-.search-container::placeholder {
-  color: rgba(255, 255, 255, 0.6); /* Placeholder daha yumuşak beyaz */
-  font-weight: 300;
-}
+  .search-container .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* input'a tıklamaya engel olmasın */
+    color: #888;
+    font-size: 18px;
+  }
 </style>
 
 

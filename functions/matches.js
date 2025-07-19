@@ -47,12 +47,6 @@ export async function onRequest(context) {
   <head>
     <meta charset="UTF-8">
     <style>
-    .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-hd-indicator] {
-        display: block !important;
-        fill: rgb(173, 216, 230) !important;
-    }
-</style>
-    <style>
       body { margin: 0; padding: 0; background: #000; }
       #player { width: 100%; height: 100vh; position: relative; }
 
@@ -79,10 +73,9 @@ export async function onRequest(context) {
         background: #d33;
       }
     </style>
-   <script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://dengetv53.live/assets/js/clappr.js"></script>
-  </head>
+</head>
   <body>
     <div id="player">
       <div id="ad-timer" style="display: none;"></div>

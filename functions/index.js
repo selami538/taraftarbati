@@ -447,28 +447,36 @@ ${
       </div>
 <!-- Arama Kutusu -->
 <style>
-  .search-container {
-    position: relative;
-    margin: 10px 0;
-  }
+.search-container {
+  background-color: rgba(255, 255, 255, 0.2); /* Beyaz, %20 opak */
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  width: 250px;
+  backdrop-filter: blur(5px); /* Arka plan flu efekti (isteğe bağlı) */
+}
 
-  .search-container input {
-    width: 100%;
-    padding: 7px 35px 7px 10px; /* sağa yer bırakıyoruz ikon için */
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
+#matchSearchInput {
+  background-color: rgba(255, 255, 255, 0.1); /* Hafif saydam input */
+  border: none;
+  outline: none;
+  padding: 8px;
+  color: white;
+  width: 100%;
+  font-size: 14px;
+}
 
-  .search-container .search-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none; /* input'a tıklamaya engel olmasın */
-    color: #888;
-    font-size: 18px;
-  }
+.search-icon {
+  margin-left: 8px;
+  color: white;
+  opacity: 0.6; /* Saydam ikon */
+}
+
+.search-container::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 </style>
 
 <div class="search-container">

@@ -448,36 +448,57 @@ ${
 <!-- Arama Kutusu -->
 <style>
 .search-container {
-  background-color: rgba(255, 255, 255, 0.2); /* Beyaz, %20 opak */
-  padding: 10px;
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.3); /* Slightly higher opacity */
+  padding: 12px 16px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  width: 250px;
-  backdrop-filter: blur(5px); /* Arka plan flu efekti (isteğe bağlı) */
+  width: 300px;
+  backdrop-filter: blur(10px); /* Stronger blur effect for a more elegant look */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow to make it pop */
+  transition: all 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+.search-container:focus-within {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Focus effect for the container */
 }
 
 #matchSearchInput {
-  background-color: rgba(255, 255, 255, 0.1); /* Hafif saydam input */
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly stronger opacity */
   border: none;
   outline: none;
-  padding: 8px;
-  color: white;
+  padding: 10px;
+  color: #fff;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+#matchSearchInput:focus {
+  background-color: rgba(255, 255, 255, 0.3); /* Change color on focus for clarity */
 }
 
 .search-icon {
-  margin-left: 8px;
+  margin-left: 12px;
   color: white;
-  opacity: 0.6; /* Saydam ikon */
+  opacity: 0.8;
+  font-size: 18px;
+  cursor: pointer; /* Make it clear the icon is clickable */
+  transition: opacity 0.3s ease;
+}
+
+.search-icon:hover {
+  opacity: 1; /* Increase opacity when hovered */
 }
 
 .search-container::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+  font-style: italic; /* Optional: Italicize the placeholder for a softer look */
 }
 
 </style>
+
 
 <div class="search-container">
   <input type="text" id="matchSearchInput" placeholder="Maç veya kanal ara...">

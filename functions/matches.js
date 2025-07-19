@@ -15,27 +15,13 @@ export async function onRequest(context) {
     const json = await res2.json();
 
     if (json.playerlogo) {
-      if (json.playerlogo.player_logo) {
-        playerLogo = json.playerlogo.player_logo;
-      }
-      if (json.playerlogo.player_logoyeriki) {
-        playerLogoyer = json.playerlogo.player_logoyeriki;
-      }
-      if (json.playerlogo.player_site) {
-        playerSite = json.playerlogo.player_site;
-      }
-      if (json.playerlogo.player_reklamvideo) {
-        reklamVideo = json.playerlogo.player_reklamvideo;
-      }
-      if (json.playerlogo.player_reklamsure) {
-        reklamSure = parseInt(json.playerlogo.player_reklamsure);
-      }
-      if (json.playerlogo.player_reklamdurum) {
-        reklamDurum = parseInt(json.playerlogo.player_reklamdurum);
-      }
-      if (json.playerlogo.player_arkaplan) {
-        playerPoster = json.playerlogo.player_arkaplan;
-      }
+      if (json.playerlogo.player_logo) playerLogo = json.playerlogo.player_logo;
+      if (json.playerlogo.player_logoyeriki) playerLogoyer = json.playerlogo.player_logoyeriki;
+      if (json.playerlogo.player_site) playerSite = json.playerlogo.player_site;
+      if (json.playerlogo.player_reklamvideo) reklamVideo = json.playerlogo.player_reklamvideo;
+      if (json.playerlogo.player_reklamsure) reklamSure = parseInt(json.playerlogo.player_reklamsure);
+      if (json.playerlogo.player_reklamdurum) reklamDurum = parseInt(json.playerlogo.player_reklamdurum);
+      if (json.playerlogo.player_arkaplan) playerPoster = json.playerlogo.player_arkaplan;
     }
   } catch (e) {
     console.error("Veriler alınamadı:", e);
@@ -48,7 +34,13 @@ export async function onRequest(context) {
     <meta charset="UTF-8">
     <style>
       body { margin: 0; padding: 0; background: #000; }
-      #player { width: 100%; height: 100vh; position: relative; }
+      #player { width: 100vw; height: 100vh; position: relative; background: #000; }
+
+      #player video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
 
       #ad-timer, #skip-btn {
         position: absolute;
@@ -95,7 +87,10 @@ export async function onRequest(context) {
           autoPlay: true,
           width: "100%",
           height: "100%",
-          mimeType: "application/x-mpegURL"
+          aspectRatio: "16:9",
+          fitVideo: "cover",
+          mimeType: "application/x-mpegURL",
+          playback: { autoPlay: true }
         };
 
         ${playerLogo ? `options.watermark = "${playerLogo}";` : ""}
@@ -125,7 +120,9 @@ export async function onRequest(context) {
             parentId: "#player",
             autoPlay: true,
             width: "100%",
-            height: "100%"
+            height: "100%",
+            aspectRatio: "16:9",
+            fitVideo: "cover"
           });
 
           const timerDiv = document.getElementById("ad-timer");

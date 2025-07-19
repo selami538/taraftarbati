@@ -79,7 +79,9 @@ export async function onRequest(context) {
         background: #d33;
       }
     </style>
-    <script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://dengetv53.live/assets/js/clappr.js"></script>
   </head>
   <body>
     <div id="player">

@@ -93,8 +93,8 @@ export async function onRequest(context) {
           source: mainUrl,
           parentId: "#player",
           autoPlay: true,
-          width: "100%",
-          height: "100%",
+       width: '100%',
+                        height: '450',
           mimeType: "application/x-mpegURL"
         };
 

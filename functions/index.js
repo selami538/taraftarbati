@@ -448,51 +448,40 @@ ${
 <!-- Arama Kutusu -->
 <style>
 .search-container {
-  background-color: rgba(0, 0, 0, 0.3); /* Koyu, şık bir arka plan */
-  padding: 8px 16px;
-  border-radius: 25px; /* Yuvarlak köşeler */
+  background-color: rgba(255, 255, 255, 0.2); /* Hafif opak beyaz */
+  padding: 10px;
+  border-radius: 50px; /* Tam yuvarlak köşeler */
   display: flex;
   align-items: center;
-  width: 300px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* Derinlik için yumuşak gölge */
+  width: 100%; /* Tam genişlik */
+  max-width: 300px; /* Max genişlik, böylece fazla büyümez */
+  margin-right: 0; /* Sağdaki boşluğu kaldırdık */
 }
 
 #matchSearchInput {
-  background-color: transparent; /* Şeffaf arka plan */
+  background-color: transparent;
   border: none;
   outline: none;
-  padding: 10px 15px;
+  padding: 8px 12px;
   color: white;
-  font-size: 16px;
-  width: 100%;
-  border-radius: 20px; /* Input alanına yuvarlaklık ekledik */
-  transition: all 0.3s ease-in-out; /* Geçiş efektleri */
-}
-
-#matchSearchInput:focus {
-  border: 2px solid #5e81f4; /* Fokus halinde mavi sınır */
-  box-shadow: 0 0 10px rgba(94, 129, 244, 0.5); /* Fokuslanınca mavi ışıma */
+  font-size: 14px;
+  width: 100%; /* Tam genişlik */
+  border-radius: 50px; /* Input alanına da yuvarlaklık */
 }
 
 .search-icon {
-  color: white;
   margin-left: 10px;
-  font-size: 18px;
-  opacity: 0.7;
-  cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.search-icon:hover {
-  opacity: 1; /* Hover efekt */
+  color: white;
+  font-size: 16px;
+  opacity: 0.6;
 }
 
 .search-container::placeholder {
-  color: rgba(255, 255, 255, 0.5); /* Placeholder daha yumuşak beyaz */
-  font-weight: 300; /* Hafif inceltme, daha şık görünüm */
+  color: rgba(255, 255, 255, 0.6); /* Placeholder daha yumuşak beyaz */
+  font-weight: 300;
 }
-
 </style>
+
 
 
 

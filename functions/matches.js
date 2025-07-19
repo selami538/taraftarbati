@@ -126,7 +126,8 @@ export async function onRequest(context) {
             parentId: "#player",
             autoPlay: true,
             width: "100%",
-            height: "100%"
+            height: "100%",
+            aspectRatio: "16:9"
           });
 
           const timerDiv = document.getElementById("ad-timer");

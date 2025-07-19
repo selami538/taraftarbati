@@ -48,8 +48,7 @@ export async function onRequest(context) {
     <meta charset="UTF-8">
     <style>
       body { margin: 0; padding: 0; background: #000; }
-           #player { width: 100%; height: 450px; position: relative; }
-
+      #player { width: 100%; height: 100vh; position: relative; }
 
       #ad-timer, #skip-btn {
         position: absolute;
@@ -94,7 +93,9 @@ export async function onRequest(context) {
           source: mainUrl,
           parentId: "#player",
           autoPlay: true,
-        
+          width: "100%",
+          height: "100%",
+          aspectRatio: "16:9",
           mimeType: "application/x-mpegURL"
         };
 
@@ -124,7 +125,8 @@ export async function onRequest(context) {
             source: reklamVideo,
             parentId: "#player",
             autoPlay: true,
-            
+            width: "100%",
+            height: "100%"
           });
 
           const timerDiv = document.getElementById("ad-timer");

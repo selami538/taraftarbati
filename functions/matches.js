@@ -48,7 +48,8 @@ export async function onRequest(context) {
     <meta charset="UTF-8">
     <style>
       body { margin: 0; padding: 0; background: #000; }
-     
+           #player { width: 100%; height: 450px; position: relative; }
+
 
       #ad-timer, #skip-btn {
         position: absolute;

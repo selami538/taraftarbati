@@ -15,13 +15,27 @@ export async function onRequest(context) {
     const json = await res2.json();
 
     if (json.playerlogo) {
-      if (json.playerlogo.player_logo) playerLogo = json.playerlogo.player_logo;
-      if (json.playerlogo.player_logoyeriki) playerLogoyer = json.playerlogo.player_logoyeriki;
-      if (json.playerlogo.player_site) playerSite = json.playerlogo.player_site;
-      if (json.playerlogo.player_reklamvideo) reklamVideo = json.playerlogo.player_reklamvideo;
-      if (json.playerlogo.player_reklamsure) reklamSure = parseInt(json.playerlogo.player_reklamsure);
-      if (json.playerlogo.player_reklamdurum) reklamDurum = parseInt(json.playerlogo.player_reklamdurum);
-      if (json.playerlogo.player_arkaplan) playerPoster = json.playerlogo.player_arkaplan;
+      if (json.playerlogo.player_logo) {
+        playerLogo = json.playerlogo.player_logo;
+      }
+      if (json.playerlogo.player_logoyeriki) {
+        playerLogoyer = json.playerlogo.player_logoyeriki;
+      }
+      if (json.playerlogo.player_site) {
+        playerSite = json.playerlogo.player_site;
+      }
+      if (json.playerlogo.player_reklamvideo) {
+        reklamVideo = json.playerlogo.player_reklamvideo;
+      }
+      if (json.playerlogo.player_reklamsure) {
+        reklamSure = parseInt(json.playerlogo.player_reklamsure);
+      }
+      if (json.playerlogo.player_reklamdurum) {
+        reklamDurum = parseInt(json.playerlogo.player_reklamdurum);
+      }
+      if (json.playerlogo.player_arkaplan) {
+        playerPoster = json.playerlogo.player_arkaplan;
+      }
     }
   } catch (e) {
     console.error("Veriler alınamadı:", e);
@@ -33,14 +47,14 @@ export async function onRequest(context) {
   <head>
     <meta charset="UTF-8">
     <style>
+    .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-hd-indicator] {
+        display: block !important;
+        fill: rgb(173, 216, 230) !important;
+    }
+</style>
+    <style>
       body { margin: 0; padding: 0; background: #000; }
-      #player { width: 100vw; height: 100vh; position: relative; background: #000; }
-
-      #player video {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-      }
+      #player { width: 100%; height: 100vh; position: relative; }
 
       #ad-timer, #skip-btn {
         position: absolute;
@@ -87,10 +101,7 @@ export async function onRequest(context) {
           autoPlay: true,
           width: "100%",
           height: "100%",
-          aspectRatio: "16:9",
-          fitVideo: "cover",
-          mimeType: "application/x-mpegURL",
-          playback: { autoPlay: true }
+          mimeType: "application/x-mpegURL"
         };
 
         ${playerLogo ? `options.watermark = "${playerLogo}";` : ""}
@@ -120,9 +131,7 @@ export async function onRequest(context) {
             parentId: "#player",
             autoPlay: true,
             width: "100%",
-            height: "100%",
-            aspectRatio: "16:9",
-            fitVideo: "cover"
+            height: "100%"
           });
 
           const timerDiv = document.getElementById("ad-timer");
@@ -153,7 +162,7 @@ export async function onRequest(context) {
       }
 
       if (id) {
-        fetch("https://matchkey.sbs/load/yayinlink.jpeg?id=" + encodeURIComponent(id))
+        fetch("https://matchkey.sbs/load/yayinlink.php?id=" + encodeURIComponent(id))
           .then(res => res.json())
           .then(data => {
             const streamUrl = data.deismackanal || "";

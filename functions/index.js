@@ -448,56 +448,52 @@ ${
 <!-- Arama Kutusu -->
 <style>
 .search-container {
-  background-color: rgba(255, 255, 255, 0.3); /* Slightly higher opacity */
-  padding: 12px 16px;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3); /* Koyu, şık bir arka plan */
+  padding: 8px 16px;
+  border-radius: 25px; /* Yuvarlak köşeler */
   display: flex;
   align-items: center;
   width: 300px;
-  backdrop-filter: blur(10px); /* Stronger blur effect for a more elegant look */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow to make it pop */
-  transition: all 0.3s ease-in-out; /* Smooth transition effect */
-}
-
-.search-container:focus-within {
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Focus effect for the container */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* Derinlik için yumuşak gölge */
 }
 
 #matchSearchInput {
-  background-color: rgba(255, 255, 255, 0.2); /* Slightly stronger opacity */
+  background-color: transparent; /* Şeffaf arka plan */
   border: none;
   outline: none;
-  padding: 10px;
-  color: #fff;
-  width: 100%;
+  padding: 10px 15px;
+  color: white;
   font-size: 16px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  width: 100%;
+  border-radius: 20px; /* Input alanına yuvarlaklık ekledik */
+  transition: all 0.3s ease-in-out; /* Geçiş efektleri */
 }
 
 #matchSearchInput:focus {
-  background-color: rgba(255, 255, 255, 0.3); /* Change color on focus for clarity */
+  border: 2px solid #5e81f4; /* Fokus halinde mavi sınır */
+  box-shadow: 0 0 10px rgba(94, 129, 244, 0.5); /* Fokuslanınca mavi ışıma */
 }
 
 .search-icon {
-  margin-left: 12px;
   color: white;
-  opacity: 0.8;
+  margin-left: 10px;
   font-size: 18px;
-  cursor: pointer; /* Make it clear the icon is clickable */
-  transition: opacity 0.3s ease;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .search-icon:hover {
-  opacity: 1; /* Increase opacity when hovered */
+  opacity: 1; /* Hover efekt */
 }
 
 .search-container::placeholder {
-  color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
-  font-style: italic; /* Optional: Italicize the placeholder for a softer look */
+  color: rgba(255, 255, 255, 0.5); /* Placeholder daha yumuşak beyaz */
+  font-weight: 300; /* Hafif inceltme, daha şık görünüm */
 }
 
 </style>
+
 
 
 <div class="search-container">

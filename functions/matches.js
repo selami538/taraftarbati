@@ -39,11 +39,6 @@ export async function onRequest(context) {
       #player video {
         width: 100% !important;
         height: 100% !important;
-      }
-      #player video.normal-mode {
-        object-fit: contain !important;
-      }
-      #player video.fullscreen-mode {
         object-fit: cover !important;
       }
 
@@ -104,7 +99,6 @@ export async function onRequest(context) {
         ${playerPoster ? `options.poster = "${playerPoster}";` : ""}
 
         new Clappr.Player(options);
-        setTimeout(applyVideoModeClass, 500);
       }
 
       function skipAd() {
@@ -204,27 +198,6 @@ export async function onRequest(context) {
           });
       } else {
         document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20px'>ID eksik</h2>";
-      }
-
-      document.addEventListener('fullscreenchange', () => {
-        const video = document.querySelector('#player video');
-        if (!video) return;
-        if (document.fullscreenElement) {
-          video.classList.remove('normal-mode');
-          video.classList.add('fullscreen-mode');
-        } else {
-          video.classList.remove('fullscreen-mode');
-          video.classList.add('normal-mode');
-        }
-      });
-
-      function applyVideoModeClass() {
-        const video = document.querySelector('#player video');
-        if (video) {
-          video.classList.add('normal-mode');
-        } else {
-          setTimeout(applyVideoModeClass, 300);
-        }
       }
     </script>
   </body>

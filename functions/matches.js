@@ -15,27 +15,13 @@ export async function onRequest(context) {
     const json = await res2.json();
 
     if (json.playerlogo) {
-      if (json.playerlogo.player_logo) {
-        playerLogo = json.playerlogo.player_logo;
-      }
-      if (json.playerlogo.player_logoyeriki) {
-        playerLogoyer = json.playerlogo.player_logoyeriki;
-      }
-      if (json.playerlogo.player_site) {
-        playerSite = json.playerlogo.player_site;
-      }
-      if (json.playerlogo.player_reklamvideo) {
-        reklamVideo = json.playerlogo.player_reklamvideo;
-      }
-      if (json.playerlogo.player_reklamsure) {
-        reklamSure = parseInt(json.playerlogo.player_reklamsure);
-      }
-      if (json.playerlogo.player_reklamdurum) {
-        reklamDurum = parseInt(json.playerlogo.player_reklamdurum);
-      }
-      if (json.playerlogo.player_arkaplan) {
-        playerPoster = json.playerlogo.player_arkaplan;
-      }
+      if (json.playerlogo.player_logo) playerLogo = json.playerlogo.player_logo;
+      if (json.playerlogo.player_logoyeriki) playerLogoyer = json.playerlogo.player_logoyeriki;
+      if (json.playerlogo.player_site) playerSite = json.playerlogo.player_site;
+      if (json.playerlogo.player_reklamvideo) reklamVideo = json.playerlogo.player_reklamvideo;
+      if (json.playerlogo.player_reklamsure) reklamSure = parseInt(json.playerlogo.player_reklamsure);
+      if (json.playerlogo.player_reklamdurum) reklamDurum = parseInt(json.playerlogo.player_reklamdurum);
+      if (json.playerlogo.player_arkaplan) playerPoster = json.playerlogo.player_arkaplan;
     }
   } catch (e) {
     console.error("Veriler alınamadı:", e);
@@ -48,7 +34,18 @@ export async function onRequest(context) {
     <meta charset="UTF-8">
     <style>
       body { margin: 0; padding: 0; background: #000; }
-      #player { width: 100%; height: 100vh; position: relative; }
+      #player { width: 100vw; height: 100vh; position: relative; background: #000; }
+
+      #player video {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      #player video.normal-mode {
+        object-fit: contain !important;
+      }
+      #player video.fullscreen-mode {
+        object-fit: cover !important;
+      }
 
       #ad-timer, #skip-btn {
         position: absolute;
@@ -96,7 +93,9 @@ export async function onRequest(context) {
           width: "100%",
           height: "100%",
           aspectRatio: "16:9",
-          mimeType: "application/x-mpegURL"
+          fitVideo: "cover",
+          mimeType: "application/x-mpegURL",
+          playback: { autoPlay: true }
         };
 
         ${playerLogo ? `options.watermark = "${playerLogo}";` : ""}
@@ -105,6 +104,8 @@ export async function onRequest(context) {
         ${playerPoster ? `options.poster = "${playerPoster}";` : ""}
 
         new Clappr.Player(options);
+
+        applyVideoModeClass(); // video'ya class ata
       }
 
       function skipAd() {
@@ -127,7 +128,8 @@ export async function onRequest(context) {
             autoPlay: true,
             width: "100%",
             height: "100%",
-            aspectRatio: "16:9"
+            aspectRatio: "16:9",
+            fitVideo: "cover"
           });
 
           const timerDiv = document.getElementById("ad-timer");
@@ -158,7 +160,7 @@ export async function onRequest(context) {
       }
 
       if (id) {
-        fetch("https://matchkey.sbs/load/yayinlink.php?id=" + encodeURIComponent(id))
+        fetch("https://matchkey.sbs/load/yayinlink.jpeg?id=" + encodeURIComponent(id))
           .then(res => res.json())
           .then(data => {
             const streamUrl = data.deismackanal || "";
@@ -203,6 +205,29 @@ export async function onRequest(context) {
           });
       } else {
         document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20px'>ID eksik</h2>";
+      }
+
+      // Tam ekran moduna göre class değiştir
+      document.addEventListener('fullscreenchange', () => {
+        const video = document.querySelector('#player video');
+        if (!video) return;
+        if (document.fullscreenElement) {
+          video.classList.remove('normal-mode');
+          video.classList.add('fullscreen-mode');
+        } else {
+          video.classList.remove('fullscreen-mode');
+          video.classList.add('normal-mode');
+        }
+      });
+
+      // Clappr video yüklendikten sonra class ata
+      function applyVideoModeClass() {
+        const video = document.querySelector('#player video');
+        if (video) {
+          video.classList.add('normal-mode');
+        } else {
+          setTimeout(applyVideoModeClass, 300);
+        }
       }
     </script>
   </body>

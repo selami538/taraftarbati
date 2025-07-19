@@ -479,6 +479,11 @@ ${
     font-size: 18px;
   }
 
+  .search-container input::placeholder {
+    color:#aaaaaa; 
+}
+
+
 </style>
 
 

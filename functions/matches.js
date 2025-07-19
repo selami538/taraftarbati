@@ -104,8 +104,7 @@ export async function onRequest(context) {
         ${playerPoster ? `options.poster = "${playerPoster}";` : ""}
 
         new Clappr.Player(options);
-
-        applyVideoModeClass(); // video'ya class ata
+        setTimeout(applyVideoModeClass, 500);
       }
 
       function skipAd() {
@@ -207,7 +206,6 @@ export async function onRequest(context) {
         document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20px'>ID eksik</h2>";
       }
 
-      // Tam ekran moduna göre class değiştir
       document.addEventListener('fullscreenchange', () => {
         const video = document.querySelector('#player video');
         if (!video) return;
@@ -220,7 +218,6 @@ export async function onRequest(context) {
         }
       });
 
-      // Clappr video yüklendikten sonra class ata
       function applyVideoModeClass() {
         const video = document.querySelector('#player video');
         if (video) {

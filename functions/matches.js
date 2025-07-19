@@ -94,8 +94,7 @@ export async function onRequest(context) {
           source: mainUrl,
           parentId: "#player",
           autoPlay: true,
-          width: "100%",
-          height: "100%",
+        
           mimeType: "application/x-mpegURL"
         };
 
@@ -125,8 +124,7 @@ export async function onRequest(context) {
             source: reklamVideo,
             parentId: "#player",
             autoPlay: true,
-            width: "100%",
-            height: "100%"
+            
           });
 
           const timerDiv = document.getElementById("ad-timer");

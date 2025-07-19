@@ -447,18 +447,27 @@ ${
       </div>
 <!-- Arama Kutusu -->
 <style>
+
   .search-container {
     position: relative;
   }
 
-  .search-container input {
-  background-color: rgb(0 0 0 / 0);
+.search-container input {
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
     width: 100%;
-    padding: 7px 35px 7px 10px; /* sağa yer bırakıyoruz ikon için */
+    padding: 7px 35px 7px 10px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-  }
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Açık gri renk */
+    outline: none; /* Focus olduğunda oluşan dış çizgiyi kaldırır */
+}
+
+.search-container input:focus {
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Focus durumunda da aynı açık gri çizgi */
+}
+
+
 
   .search-container .search-icon {
     position: absolute;
@@ -469,6 +478,7 @@ ${
     color: #888;
     font-size: 18px;
   }
+
 </style>
 
 

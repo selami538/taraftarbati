@@ -449,10 +449,10 @@ ${
 <style>
   .search-container {
     position: relative;
-    margin: 10px 0;
   }
 
   .search-container input {
+  background-color: rgb(0 0 0 / 0);
     width: 100%;
     padding: 7px 35px 7px 10px; /* sağa yer bırakıyoruz ikon için */
     font-size: 16px;

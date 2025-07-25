@@ -16,7 +16,7 @@ export async function onRequest(context) {
     return String(parseInt(match) + 1);
   });
 
-  const apiUrl = "https://panelt24.matchkey.sbs/api/verirepo.php";
+  const apiUrl = "https://paneltaraftarium.corepanel.pro/api/verirepo.php";
 
   let title = "";
   let description = "";

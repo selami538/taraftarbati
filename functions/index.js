@@ -400,7 +400,7 @@ ${
 ${reklam1 
   ? `<div style="margin: 10px; text-align: center;">
       ${hrefreklam1 
-        ? `<a href="${hrefreklam1}" target="_blank"><img class="ads-img" src="${reklam1}" width="100%"/></a>` 
+        ? `<a href="${hrefreklam1}" target="_blank"><img class="ads-img" src="${reklam1}" width="100%" loading="lazy"/></a>` 
         : `<img class="ads-img" src="${reklam1}" width="100%"/>`}
     </div>` 
   : ''
@@ -410,7 +410,7 @@ ${
     ? `<div style="margin: 10px; text-align: center;">
          ${
            hrefreklam4 
-             ? `<a href="${hrefreklam4}" target="_blank"><img class="ads-img" src="${reklam4}" width="100%"/></a>` 
+             ? `<a href="${hrefreklam4}" target="_blank"><img class="ads-img" src="${reklam4}" width="100%" loading="lazy"/></a>` 
              : `<img class="ads-img" src="${reklam4}" width="100%"/>`
          }
        </div>`
@@ -744,7 +744,7 @@ ${
          ${
            hrefreklam2
              ? `<a href="${hrefreklam2}" target="_blank"><center><img src="${reklam2}" alt="reklamlar" /></center></a>`
-             : `<center><img src="${reklam2}" alt="reklamlar" /></center>`
+             : `<center><img src="${reklam2}" alt="reklamlar" loading="lazy"/></center>`
          }
        </div>`
     : ''
@@ -756,7 +756,7 @@ ${
          ${
            hrefreklam5
              ? `<a href="${hrefreklam5}" target="_blank"><center><img src="${reklam5}" alt="reklamlar" /></center></a>`
-             : `<center><img src="${reklam5}" alt="reklamlar" /></center>`
+             : `<center><img src="${reklam5}" alt="reklamlar" loading="lazy"/></center>`
          }
        </div></div>`
     : ''
@@ -831,4 +831,3 @@ ${
     headers: { "Content-Type": "text/html; charset=UTF-8" }
   });
 }
-

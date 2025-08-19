@@ -3,13 +3,12 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const hostname = url.hostname;
 
-  // --- www ile başlayan domain varsa www'yi kaldırıp yönlendir ---
+ 
   if (hostname.startsWith("www.")) {
     const newHost = hostname.replace(/^www\./, "");
     const redirectUrl = `${url.protocol}//${newHost}${url.pathname}${url.search}`;
     return Response.redirect(redirectUrl, 301);
   }
-  // --- www yönlendirme son ---
 
   // Sayı artışı işlemi düzgün tanımlandı
   const nextDomain = hostname.replace(/(\d+)(?!.*\d)/, (match) => {
